@@ -1,44 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Ganesha Chatbot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/assets/ganesha-favicon.ico">
+    <link rel="stylesheet" href="output.css">
+    <title>Ganesha_Chatbot</title>
 </head>
+
 <body>
-  <h1>🎙 Talk to Lord Ganesha</h1>
-
-  <button id="recordBtn">Start Recording</button>
-  <button id="stopBtn" disabled>Stop</button>
-
-  <script>
-    let mediaRecorder;
-    let audioChunks = [];
-
-    document.getElementById("recordBtn").onclick = async () => {
-      let stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorder = new MediaRecorder(stream);
-      audioChunks = [];
-
-      mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
-      mediaRecorder.onstop = async () => {
-        let blob = new Blob(audioChunks, { type: "audio/webm" });
-        let formData = new FormData();
-        formData.append("audio", blob, "voice_input.webm");
-
-        let response = await fetch("/voice", { method: "POST", body: formData });
-        let data = await response.json();
-        alert("Ganesha says: " + data.reply);
-      };
-
-      mediaRecorder.start();
-      document.getElementById("recordBtn").disabled = true;
-      document.getElementById("stopBtn").disabled = false;
-    };
-
-    document.getElementById("stopBtn").onclick = () => {
-      mediaRecorder.stop();
-      document.getElementById("recordBtn").disabled = false;
-      document.getElementById("stopBtn").disabled = true;
-    };
-  </script>
+    <header class="header bg-amber-500 m-0 w-full h-16">
+        <nav class="container flex items-center justify-between mx-auto p-4">
+            <ul class="flex gap-2 font-bold text-white">
+                <li class="font-medium">About</li>
+                <li>Home</li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/handle" method="post">
+            <button class="border-4" id="talk" >Talk to ganesha</button>
+        </form>
+    </main>
+    <footer></footer>
 </body>
+
 </html>
