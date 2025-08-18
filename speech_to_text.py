@@ -18,18 +18,13 @@ def speech_to_text():
         return ""
 
 def text_to_speech(text):
-    engine = pyttsx3.init()
-    voices = engine.getProperty('voices')
+    async def say(text):
+    communicate = edge_tts.Communicate(text, "en-IN-PrabhatNeural")
+    await communicate.save("output.mp3")
 
-    # Pick male voice if available
-    for v in voices:
-        if "male" in v.name.lower():
-            engine.setProperty('voice', v.id)
-            break
+ asyncio.run(say(text))
+ playsound('output.mp3')
 
-    # Speak out loud
-    engine.say(text)
-    engine.runAndWait()
 
 
 if __name__ == "__main__":
