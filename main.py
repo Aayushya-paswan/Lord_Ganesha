@@ -1,6 +1,6 @@
 
-from flask import Flask, render_template, request
-
+from flask import Flask, request, jsonify, render_template
+from AI_logic import give_response
 app = Flask(__name__)
 
 @app.route('/')
