@@ -26,4 +26,4 @@ Now, your devotee is saying:-
     response_text = client.generate(model=model, prompt=(initial_prompt+str(text)))
     return response_text['response']
 
-print(give_response("nice"))
+#print(give_response("nice"))

@@ -30,7 +30,6 @@ def text_to_speech(text):
     # Speak out loud
     engine.say(text)
     engine.runAndWait()
-    print(f"✅ Voice output done, and saved as {filename}")
 
 
 if __name__ == "__main__":
