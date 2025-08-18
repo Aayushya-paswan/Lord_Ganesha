@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +10,7 @@
     <link rel="stylesheet" href="output.css">
     <title>Ganesha_Chatbot</title>
 </head>
-
-<body class="min-h-screen flex flex-col">
+<body>
     <header class="header bg-amber-500 m-0 w-full h-24">
         <nav class="container flex items-center justify-between mx-auto p-4">
             <div class="flex items-center gap-2">
@@ -25,25 +23,6 @@
             </ul>
         </nav>
     </header>
-     <main class="flex-1 flex justify-center items-center p-8">
-        <div class="max-w-md w-full">
-            <div class="bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-200 rounded-xl shadow-lg border border-orange-300 p-8">
-                <div class="text-center">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Chat with Ganesha</h2>
-                    <form action="/handle" method="post">
-                        <button 
-                            type="button" 
-                            id="talk" 
-                            class="bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-orange-500"
-                        >
-                            Talk to Ganesha
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main>
-
 
     <footer class="bg-gradient-to-r from-orange-200 to-yellow-200 border-t border-orange-300">
         <div class="container mx-auto px-4 py-8 text-center">
@@ -72,17 +51,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.getElementById('talk').addEventListener('click', function() {
-            const button = this;
-            const originalText = button.textContent;
-            
-            button.textContent = 'RECORDING...';
-            button.disabled = true;
-            button.classList.remove('hover:from-orange-500', 'hover:to-yellow-500', 'hover:shadow-xl', 'hover:scale-105');
-            button.classList.add('opacity-75', 'cursor-not-allowed');
-        });
-    </script>
 </body>
-
 </html>
