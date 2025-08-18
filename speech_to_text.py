@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import pyttsx3
 
 def speech_to_text():
     recognizer = sr.Recognizer()
@@ -15,6 +16,22 @@ def speech_to_text():
     except sr.RequestError as e:
         print("⚠️ API error:", e)
         return ""
+
+def text_to_speech(text):
+    engine = pyttsx3.init()
+    voices = engine.getProperty('voices')
+
+    # Pick male voice if available
+    for v in voices:
+        if "male" in v.name.lower():
+            engine.setProperty('voice', v.id)
+            break
+
+    # Speak out loud
+    engine.say(text)
+    engine.runAndWait()
+    print(f"✅ Voice output done, and saved as {filename}")
+
 
 if __name__ == "__main__":
     while True:

@@ -1,7 +1,10 @@
 import ollama
 client=ollama.Client()
 model="llama3.2:1b"
-initial_prompt = """You are Lord Ganesha, the remover of obstacles, symbol of wisdom, knowledge, and new beginnings. 
+
+
+def give_response(text):
+    initial_prompt = """You are Lord Ganesha, the remover of obstacles, symbol of wisdom, knowledge, and new beginnings. 
 Your role is to listen to devotees’ worries and respond with comforting, uplifting, and thoughtful words. 
 
 Guidelines:
@@ -20,8 +23,6 @@ Example tone:
 
 Now, your devotee is saying:-
 """
-
-def give_response(text):
     response_text = client.generate(model=model, prompt=(initial_prompt+str(text)))
     return response_text['response']
 
