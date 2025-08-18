@@ -22,26 +22,63 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <form action="/handle" method="post">
-            <button class="border-4" id="talk" >Talk to ganesha</button>
-        </form>
+     <main class="flex-1 flex justify-center items-center p-8">
+        <div class="max-w-md w-full">
+            <div class="bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-200 rounded-xl shadow-lg border border-orange-300 p-8">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Chat with Ganesha</h2>
+                    <form action="/handle" method="post">
+                        <button 
+                            type="button" 
+                            id="talk" 
+                            class="bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-orange-500"
+                        >
+                            Talk to Ganesha
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </main>
     <footer class="bg-gradient-to-r from-orange-200 to-yellow-200 border-t border-orange-300">
         <div class="container mx-auto px-4 py-8 text-center">
             <h5 class="text-lg font-semibold text-gray-800 mb-4">Made by Aayushya & Priyansu</h5>
             <div class="githubcontainer space-x-4 mb-4">
-                <a href="https://github.com/Aayushya-paswan" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Aayushya's GitHub</a>
-                <a href="https://github.com/priyansu-1o" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Priyansu's GitHub</a>
-                <a href="https://github.com/mukund" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Mukund's GitHub</a>
+                <a href="https://github.com/Aayushya-paswan" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Aayushya's
+                    GitHub</a>
+                <a href="https://github.com/priyansu-1o" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Priyansu's
+                    GitHub</a>
+                <a href="https://github.com/mukund" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Mukund's
+                    GitHub</a>
             </div>
             <div class="linkedin space-x-4">
-                <a href="https://www.linkedin.com/in/aayushya78/" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Aayushya's LinkedIn</a>
-                <a href="https://www.linkedin.com/in/priyansu-samanta-7924b930b/" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Priyansu's LinkedIn</a>
-                <a href="https://www.linkedin.com/in/mukund" target="_blank" class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Mukund's LinkedIn</a>
+                <a href="https://www.linkedin.com/in/aayushya78/" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Aayushya's
+                    LinkedIn</a>
+                <a href="https://www.linkedin.com/in/priyansu-samanta-7924b930b/" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Priyansu's
+                    LinkedIn</a>
+                <a href="https://www.linkedin.com/in/mukund" target="_blank"
+                    class="inline-block px-4 py-2 bg-orange-100 hover:bg-orange-200 rounded-lg transition-all duration-200 hover:text-orange-600 border border-orange-300">Mukund's
+                    LinkedIn</a>
             </div>
         </div>
     </footer>
 </body>
+
+<script>
+    document.getElementById('talk').addEventListener('click', function () {
+        const button = this;
+        const originalText = button.textContent;
+
+        button.textContent = 'RECORDING...';
+        button.disabled = true;
+        button.classList.remove('hover:from-orange-500', 'hover:to-yellow-500', 'hover:shadow-xl', 'hover:scale-105');
+        button.classList.add('opacity-75', 'cursor-not-allowed');
+    });
+</script>
 
 </html>
