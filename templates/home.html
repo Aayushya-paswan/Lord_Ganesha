@@ -7,8 +7,10 @@
     <link rel="icon" type="image/x-icon" href="/static/assets/ganesha-favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/output.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alkatra:wght@400..700&family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="output.css">
     <title>Ganesha_Chatbot</title>
 </head>
 
@@ -16,29 +18,71 @@
     <header class="header bg-amber-500 m-0 w-full h-24">
         <nav class="container flex items-center justify-between mx-auto p-4">
             <div class="flex items-center gap-2">
-                <img src="/static/assets/ganesha_logo.png" alt="Ganesha icon" class="w-8 h-8">
+                <img src="/static/assets/ganesha_logo.png" alt="Ganesha icon" class="w-16 h-16">
                 <h1 class="text-4xl font-bold text-white p-2">Ganesha Chatbot</h1>
             </div>
             <ul class="flex gap-6 font-bold text-white">
-                <a href="about.html" class="text-4xl font-bold hover:text-orange-200 transition-colors p-2" >About</a>
-                <a href="index.html" class="text-4xl font-bold hover:text-orange-200 transition-colors p-2" >Home</a>
+                <a href="about.html"
+                    class="text-4xl font-bold hover:text-orange-200 transition-all duration-300 ease-in-out transform hover:scale-110 p-2 rounded-lg hover:bg-orange-400/20 relative group"
+                    style="font-family: DM Serif Text, serif; font-weight: 400; font-style: normal;">About
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-1 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                </a>
+                <a href="index.html"
+                    class="text-4xl font-bold hover:text-orange-200 transition-all duration-300 ease-in-out transform hover:scale-110 p-2 rounded-lg hover:bg-orange-400/20 relative group"
+                    style="font-family: DM Serif Text, serif; font-weight: 400; font-style: normal;">Home
+                    <span
+                        class="absolute bottom-0 left-0 w-0 h-1 bg-white transition-all duration-300 ease-in-out group-hover:w-full"></span>
+                </a>
             </ul>
         </nav>
     </header>
-     <main class="flex-1 flex justify-center items-center p-8">
-        <div class="max-w-md w-full">
-            <div class="bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-200 rounded-xl shadow-lg border border-orange-300 p-8">
-                <div class="text-center">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Chat with Ganesha</h2>
-                    <form action="/handle" method="post">
-                        <button 
-                            type="button" 
-                            id="talk" 
-                            class="bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white font-bold py-4 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-orange-500"
-                        >
-                            Talk to Ganesha
-                        </button>
-                    </form>
+    <main class="flex-1 flex justify-center items-center p-8">
+        <div style="width: 90%;">
+            <div class="bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-200 rounded-xl shadow-lg border border-orange-300 p-8"
+                style="height: 86vh;">
+                <div class="text-center h-full flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-4xl font-bold text-gray-700 mb-6">Chat with Ganesha</h2>
+                        <p class="text-xl text-gray-600 mb-8">Click the button below to start your conversation with Lord
+                            Ganesha</p>
+                    </div>
+
+                    <div class="userChat" id="user">
+                        <div class="flex gap-2 mb-4">
+                            <div class="text-gray-800 rounded-xl p-4 shadow-lg w-5/6" style="margin-left: auto; border-radius: 24px 24px 0px 24px; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(to right, var(--color-orange-100), var(--color-yellow-200)) border-box; border: 1px solid transparent;">
+                                <div class="font-bold text-gray-800 mb-4">You</div>
+                                <p class="text-lg" id="userText">Hi Bappa!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ganeshaChat" id="ganesha">
+                        <div class="flex gap-2 mb-4">
+                            <img src="static/assets/ganesha_logo.png" alt="Ganesha avatar" class="w-32 h-32 rounded-xl border border-orange-300">
+                            <div class="bg-orange-100 text-gray-700 border border-orange-300 p-4 shadow-lg w-5/6 text-left" style="border-radius: 0px 24px 24px 24px;">
+                                <div class="font-bold text-gray-800 mb-4">Ganesha</div>
+                                <p class="text-lg" id="ganeshaResponse">Blessings! How can I help you today?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto flex flex-row gap-6">
+                        <form action="/handle" method="post" class="w-full">
+                            <div class="search-area flex items-center gap-6">
+                                <div class="form-container flex-1">
+                                    <label for="name"></label>
+                                    <input type="text" id="name" name="name" placeholder="Chat with Ganesha" required class="w-full p-4 rounded-lg border border-orange-300 bg-white text-gray-800 placeholder:hover:font-bold duration-200" />
+                                </div>
+                                <button type="button" id="talk" aria-label="Talk to Ganesha"
+                                    class="bg-gradient-to-r from-orange-400 to-yellow-400 hover:from-orange-500 hover:to-yellow-500 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-2 border-orange-500 flex items-center justify-center"
+                                    style="width: 40rem; height: 56px; border-radius: 10px; overflow: hidden;">
+                                    Talk With Bappa
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,10 +117,10 @@
         </div>
     </footer>
     <script>
-        document.getElementById('talk').addEventListener('click', function() {
+        document.getElementById('talk').addEventListener('click', function () {
             const button = this;
             const originalText = button.textContent;
-            
+
             button.textContent = 'RECORDING...';
             button.disabled = true;
             button.classList.remove('hover:from-orange-500', 'hover:to-yellow-500', 'hover:shadow-xl', 'hover:scale-105');
